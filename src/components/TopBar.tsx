@@ -1,33 +1,24 @@
-import { Avatar, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, Tooltip } from '@mui/material';
+import { Avatar, Button, ListItemIcon, ListItemText, Menu, MenuItem } from '@mui/material';
 import { t } from 'i18next';
-import { MdArrowBack, MdArrowForward, MdLogout, MdPerson } from 'react-icons/md';
-import { useNavigate } from 'react-router-dom';
-import { useAppSelector } from '../redux/store.ts';
-import { IResGetMe } from '../models/response/IResGetMe.ts';
-import AuthServices from '../service/auth.service.ts';
-import { STYLE_VARIABLE } from '../constants/style-variable.ts';
-import { PageContainer } from './PageContainer.tsx';
-import { BrandLogo } from './BrandLogo.tsx';
 import { useState } from 'react';
+import { MdLogout, MdPerson } from 'react-icons/md';
+import { STYLE_VARIABLE } from '../constants/style-variable.ts';
+import { IResGetMe } from '../models/response/IResGetMe.ts';
+import { IAccountSlice } from '../redux/reducers/account.slice.ts';
+import { useAppSelector } from '../redux/store.ts';
+import AuthServices from '../service/auth.service.ts';
+import { BrandLogo } from './BrandLogo.tsx';
+import { PageContainer } from './PageContainer.tsx';
 
 export function TopBar()
 {
-  const navigate = useNavigate();
-  const account = useAppSelector((state) => state.Account);
-  const dataProfile: IResGetMe = account.getMe?.data;
+  const account: IAccountSlice = useAppSelector((state) => state.Account);
+  const dataProfile: IResGetMe | undefined = account.getMe?.data;
 
   const [activeMenu, setActiveMenu] = useState<HTMLElement | null>(null);
 
   const authService = new AuthServices();
 
-  function onClickBack()
-  {
-    navigate(-1);
-  }
-  function onClickForward()
-  {
-    navigate(1);
-  }
 
   function handleClose()
   {
@@ -70,24 +61,19 @@ export function TopBar()
       <PageContainer className={'h-full w-full'}>
         <div className={'grid grid-cols-3 h-full '}>
           <div className={'h-full flex items-center -translate-x-5'}>
-            <IconButton onClick={onClickBack}>
-              <MdArrowBack />
-            </IconButton>
-            <IconButton onClick={onClickForward}>
-              <MdArrowForward />
-            </IconButton>
+            <BrandLogo />
           </div>
           <div className={'flex items-center justify-center'}>
-            <div className={'h-full flex items-center'}>
-              <BrandLogo />
-            </div>
+
           </div>
           <div className={'flex items-center justify-end gap-8'}>
-            <Tooltip title={t('profile')}>
-              <IconButton onClick={(e) => setActiveMenu(e.currentTarget)}>
+            <Button>
+              <div className='flex gap-4 items-center ' onClick={(e) => setActiveMenu(e.currentTarget)}>
+                <div>{dataProfile?.name || ""}</div>
                 <Avatar src={dataProfile?.avatar} sx={{ width: 30, height: 30 }} />
-              </IconButton>
-            </Tooltip>
+              </div>
+
+            </Button>
             {menuList()}
           </div>
         </div>

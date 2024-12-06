@@ -5,7 +5,7 @@ export const ENDPOINT = {
     LIVE_ORDER: (clientId: string) => '/topic/live/order/' + clientId,
   },
   UPLOAD: '/v1/upload',
-  SIGN_IN: () => `/auth/v1/sign-in/staff`,
+  SIGN_IN: () => `/auth/v1/sign-in/admin`,
   GET_ME: () => `/account/v1/get-me`,
   GET_LIST_CATEGORIES: () => `/master-data/v1/category/list`,
   NEW_PRODUCT: () => `/product/v1/new`,
@@ -30,8 +30,8 @@ export const ENDPOINT = {
   GET_CHART_REVENUE: (startDate: Date, endDate: Date) =>
     `/analytics/v1/chart-revenue?start-date=${startDate.toDateString()}&end-date=${endDate.toDateString()}`,
   GET_PUBLIC_LIST_PRODUCT: (id: string) => `/public/v1/product/list/${id}`,
-  GET_LIST_CATEGORY_PUBLIC : (code : string) => `/public/v1/category-list/${code}`,
-  PROCESS_ORDER_PUBLIC : (code : string) => `/public/v1/order/create/${code}`,
-  CHECK_STATUS_ORDER : (code : string) => `/public/v1/order/check-status/${code}`,
-  GET_DETAIL_ORDER : (id: string) => `/order/v1/detail/${id}`
+  GET_LIST_CATEGORY_PUBLIC: (code: string) => `/public/v1/category-list/${code}`,
+  PROCESS_ORDER_PUBLIC: (code: string) => `/public/v1/order/create/${code}`,
+  CHECK_STATUS_ORDER: (code: string) => `/public/v1/order/check-status/${code}`,
+  GET_DETAIL_ORDER: (id: string) => `/order/v1/detail/${id}`,
 };
