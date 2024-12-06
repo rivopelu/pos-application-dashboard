@@ -5,7 +5,7 @@ import { HomePage } from '../pages/Home/HomePage.tsx';
 import { ROUTES } from './route.ts';
 import NotFoundPage from '../pages/NotFoundPage.tsx';
 import { OrderListPage } from '../pages/order/OrderListPage.tsx';
-import { SignInPage } from '../pages/SignInPage.tsx';
+import { SignInPage } from '../pages/auth/sign-in/SignInPage.tsx';
 import { ProductPage } from '../pages/menu/ProductPage.tsx';
 import { NewEditProductPage } from '../pages/menu/NewEditProductPage.tsx';
 import { MasterDataPage } from '../pages/master-data/MasterDataPage.tsx';
@@ -16,9 +16,9 @@ import { AccountPage } from '../pages/account/AccountPage.tsx';
 import { NewAccountPage } from '../pages/account/NewAccountPage.tsx';
 import { ReportPage } from '../pages/report/ReportPage.tsx';
 import { PublicMenuListPage } from '../pages/public/PublicMenuListPage.tsx';
+import { SignUpPage } from '../pages/auth/sign-up/signUpPage.tsx';
 
-export interface IRoutesList
-{
+export interface IRoutesList {
   element: () => Element;
   type: PageTypeEnums;
   routes: string;
@@ -103,6 +103,11 @@ export const routesList: IRoutesList[] = [
   {
     element: PublicMenuListPage,
     routes: ROUTES.PUBLIC_MENU_LIST_PAGE(':code'),
+    type: PageTypeEnums.FULL_PAGE,
+  },
+  {
+    element: SignUpPage,
+    routes: ROUTES.SIGN_UP(),
     type: PageTypeEnums.FULL_PAGE,
   },
 ];
