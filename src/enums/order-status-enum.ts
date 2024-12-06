@@ -1,0 +1,8 @@
+export enum OrderStatusEnum {
+  COMPLETED = 'COMPLETED',
+  CREATED = 'CREATED',
+  READY = 'READY',
+  IN_PROGRESS = 'IN_PROGRESS',
+  PENDING = 'PENDING',
+  REQUEST_BILL = 'REQUEST_BILL',
+}
