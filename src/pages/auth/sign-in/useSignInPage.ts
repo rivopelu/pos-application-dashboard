@@ -10,12 +10,15 @@ import { ROUTES } from '../../../routes/route';
 import { IReqSignIn } from '../../../models/request/IReqSignIn';
 import { BaseResponse } from '../../../models/response/ResponseModel';
 import { ENDPOINT } from '../../../constants/endpoint';
+import { parseAsBoolean, useQueryState } from 'nuqs';
 
 export function useSignInPage() {
   const httpService = new HttpService();
   const authService = new AuthServices();
   const navigate = useNavigate();
   const errorService = new ErrorService();
+
+  const [isFromSignUp] = useQueryState('signup', parseAsBoolean.withDefault(false));
 
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState<boolean>(false);
@@ -53,5 +56,5 @@ export function useSignInPage() {
     },
   });
 
-  return { showPassword, setShowPassword, formik, loading };
+  return { showPassword, setShowPassword, formik, loading, isFromSignUp };
 }

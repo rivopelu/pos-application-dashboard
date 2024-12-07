@@ -1,14 +1,14 @@
 import { t } from 'i18next';
-import { Checkbox, Divider, FormControlLabel } from '@mui/material';
+import { Alert, Checkbox, Divider, FormControlLabel } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { useSignInPage } from './useSignInPage.ts';
 import { BrandLogo } from '../../../components/BrandLogo.tsx';
 import { CardBody, MainCard } from '../../../components/MainCard.tsx';
 import { InputText } from '../../../components/InputText.tsx';
 import { ENV } from '../../../constants/env.ts';
+import { MdCheck } from 'react-icons/md';
 
-export function SignInPage()
-{
+export function SignInPage() {
   const page = useSignInPage();
   const formik = page.formik;
   return (
@@ -24,6 +24,11 @@ export function SignInPage()
           </CardBody>
           <Divider />
           <CardBody className={'grid gap-4'}>
+            {page.isFromSignUp && (
+              <Alert icon={<MdCheck fontSize="inherit" />} severity="success">
+                {t('your-registration-is-successfully')}
+              </Alert>
+            )}
             <InputText
               onEnter={() => formik.handleSubmit()}
               label={t('username')}
