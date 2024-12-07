@@ -1,5 +1,14 @@
 import { t } from 'i18next';
-import { MdAreaChart, MdAssignment, MdCategory, MdGroup, MdHome, MdInventory, MdTextSnippet } from 'react-icons/md';
+import {
+  MdAccountBalanceWallet,
+  MdAreaChart,
+  MdAssignment,
+  MdCategory,
+  MdGroup,
+  MdHome,
+  MdInventory,
+  MdTextSnippet,
+} from 'react-icons/md';
 import { ROUTES } from '../routes/route.ts';
 import { ILabelValue } from '../models/feature-type-interface.ts';
 import { OrderStatusEnum } from '../enums/order-status-enum.ts';
@@ -36,6 +45,11 @@ export function useDataConstants() {
       title: t('master-data'),
       path: ROUTES.MASTER_DATA(),
       icon: MdInventory,
+    },
+    {
+      title: t('subscription'),
+      path: ROUTES.SUBSCRIPTION(),
+      icon: MdAccountBalanceWallet,
     },
     {
       title: t('account'),

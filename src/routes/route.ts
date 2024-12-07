@@ -19,4 +19,5 @@ export const ROUTES = {
   REPORT: (param?: defaultPaginationType) => `/report` + (param ? convertObjToQueryParam(param) : ''),
   NOT_FOUND: () => `*`,
   ACCOUNT: (param?: defaultPaginationType) => `/account` + (param ? convertObjToQueryParam(param) : ''),
+  SUBSCRIPTION: (param?: defaultPaginationType) => `/subscription` + (param ? convertObjToQueryParam(param) : ''),
 };

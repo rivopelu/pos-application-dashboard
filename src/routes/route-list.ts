@@ -17,6 +17,7 @@ import { NewAccountPage } from '../pages/account/NewAccountPage.tsx';
 import { ReportPage } from '../pages/report/ReportPage.tsx';
 import { PublicMenuListPage } from '../pages/public/PublicMenuListPage.tsx';
 import { SignUpPage } from '../pages/auth/sign-up/signUpPage.tsx';
+import { SubscriptionPage } from '../pages/subscription/SubscriptionPage.tsx';
 
 export interface IRoutesList {
   element: () => Element;
@@ -109,5 +110,10 @@ export const routesList: IRoutesList[] = [
     element: SignUpPage,
     routes: ROUTES.SIGN_UP(),
     type: PageTypeEnums.FULL_PAGE,
+  },
+  {
+    element: SubscriptionPage,
+    routes: ROUTES.SUBSCRIPTION(),
+    type: PageTypeEnums.PRIMARY,
   },
 ];
