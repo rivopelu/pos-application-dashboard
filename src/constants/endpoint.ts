@@ -6,6 +6,7 @@ export const ENDPOINT = {
   },
   UPLOAD: '/v1/upload',
   SIGN_IN: () => `/auth/v1/sign-in/admin`,
+  SIGN_UP: () => `/auth/v1/sign-up`,
   GET_ME: () => `/account/v1/get-me`,
   GET_LIST_CATEGORIES: () => `/master-data/v1/category/list`,
   NEW_PRODUCT: () => `/product/v1/new`,

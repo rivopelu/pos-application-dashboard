@@ -1,11 +1,13 @@
 import { t } from 'i18next';
 import { InputText } from '../../../components/InputText';
 import { CardBody, MainCard } from '../../../components/MainCard';
-import { Checkbox, Divider, FormControlLabel } from '@mui/material';
+import { Button, Checkbox, Divider, FormControlLabel } from '@mui/material';
 import { useSignUpPage } from './useSignUpPage';
+import { InputTextarea } from '../../../components/InputTextArea';
 
 export function SignUpPage() {
   const page = useSignUpPage();
+  const formik = page.formik;
   return (
     <div className="flex w-full h-full min-h-screen  ">
       <div className="flex-1 flex items-center justify-center">
@@ -16,15 +18,56 @@ export function SignUpPage() {
           <Divider />
           <CardBody>
             <div className="grid gap-4 min-w-[600px]">
-              <InputText label={t('full-name')} placeholder={t('insert-full-name')} required />
+              <InputText
+                label={t('full-name')}
+                placeholder={t('insert-full-name')}
+                required
+                name="name"
+                value={formik.values.name}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                errorMessage={formik.touched.name && formik.errors.name}
+              />
               <div className="grid grid-cols-2 gap-4">
-                <InputText label={t('email')} placeholder={t('insert-email')} required />
-                <InputText label={t('username')} placeholder={t('insert-username')} required />
-                <InputText label={t('password')} placeholder={t('insert-password')} required />
+                <InputText
+                  label={t('email')}
+                  placeholder={t('insert-email')}
+                  required
+                  name="email"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  errorMessage={formik.touched.email && formik.errors.email}
+                />
+                <InputText
+                  label={t('username')}
+                  placeholder={t('insert-username')}
+                  required
+                  name="username"
+                  value={formik.values.username}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  errorMessage={formik.touched.username && formik.errors.username}
+                />
+                <InputText
+                  label={t('password')}
+                  placeholder={t('insert-password')}
+                  required
+                  value={formik.values.password}
+                  name="password"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  errorMessage={formik.touched.password && formik.errors.password}
+                />
                 <InputText
                   label={t('confirmation-password')}
                   placeholder={t('insert-confirmation-password')}
                   required
+                  name="confirmation_password"
+                  value={formik.values.confirmation_password}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  errorMessage={formik.touched.confirmation_password && formik.errors.confirmation_password}
                 />
               </div>
               <FormControlLabel
@@ -42,7 +85,31 @@ export function SignUpPage() {
           </CardBody>
           <Divider />
           <CardBody>
-            <h1>BOTTOM</h1>
+            <div className="grid gap-4">
+              <InputText
+                name="business_name"
+                label={t('business-name')}
+                placeholder={t('insert-business-name')}
+                required
+                value={formik.values.business_name}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                errorMessage={formik.touched.business_name && formik.errors.business_name}
+              />
+              <InputTextarea
+                name="business_address"
+                label={t('business-address')}
+                placeholder={t('insert-business-address')}
+                required
+                value={formik.values.business_address}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                errorMessage={formik.touched.business_address && formik.errors.business_address}
+              />
+              <Button onClick={() => formik.handleSubmit()} variant="contained">
+                {t('sign-up')}
+              </Button>
+            </div>
           </CardBody>
         </MainCard>
       </div>
