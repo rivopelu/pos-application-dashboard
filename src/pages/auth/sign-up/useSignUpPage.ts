@@ -34,8 +34,8 @@ export function useSignUpPage() {
     password: yup.string().required(t('validation.required', { name: t('password') })),
     email: yup
       .string()
-      .required()
-      .email(t('validation.required', { name: t('email') })),
+      .required(t('validation.required', { name: t('email') }))
+      .email(t('validation.email-not-valid')),
     confirmation_password: yup.string().required(t('validation.required', { name: t('confirmation-password') })),
     business_name: yup.string().required(t('validation.required', { name: t('business-name') })),
     business_address: yup.string().required(t('validation.required', { name: t('business-address') })),

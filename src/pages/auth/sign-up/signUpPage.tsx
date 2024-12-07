@@ -4,6 +4,7 @@ import { CardBody, MainCard } from '../../../components/MainCard';
 import { Button, Checkbox, Divider, FormControlLabel } from '@mui/material';
 import { useSignUpPage } from './useSignUpPage';
 import { InputTextarea } from '../../../components/InputTextArea';
+import { LoadingButton } from '@mui/lab';
 
 export function SignUpPage() {
   const page = useSignUpPage();
@@ -53,6 +54,7 @@ export function SignUpPage() {
                   label={t('password')}
                   placeholder={t('insert-password')}
                   required
+                  type={page.showPassword ? 'text' : 'password'}
                   value={formik.values.password}
                   name="password"
                   onChange={formik.handleChange}
@@ -63,6 +65,7 @@ export function SignUpPage() {
                   label={t('confirmation-password')}
                   placeholder={t('insert-confirmation-password')}
                   required
+                  type={page.showPassword ? 'text' : 'password'}
                   name="confirmation_password"
                   value={formik.values.confirmation_password}
                   onChange={formik.handleChange}
@@ -106,9 +109,9 @@ export function SignUpPage() {
                 onBlur={formik.handleBlur}
                 errorMessage={formik.touched.business_address && formik.errors.business_address}
               />
-              <Button onClick={() => formik.handleSubmit()} variant="contained">
+              <LoadingButton loading={page.loadingSubmit} onClick={() => formik.handleSubmit()} variant="contained">
                 {t('sign-up')}
-              </Button>
+              </LoadingButton>
             </div>
           </CardBody>
         </MainCard>

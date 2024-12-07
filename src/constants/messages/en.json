@@ -4,7 +4,8 @@
     "min": "{{name}} must be greater than or equal to 1",
     "confirmation_title_create": "Are you sure you want to create a {{name}}?",
     "confirmation_title_edit": "Are you sure you want to update a {{name}}?",
-    "checkbox-form": "I agree that all information provided is accurate and correct."
+    "checkbox-form": "I agree that all information provided is accurate and correct.",
+    "email-not-valid": "email not valid"
   },
   "response": {
     "SUCCESS": "success",
