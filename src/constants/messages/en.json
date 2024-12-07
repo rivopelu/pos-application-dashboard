@@ -135,5 +135,6 @@
   "select-status": "Select status",
   "profile": "profile",
   "logout": "logout",
+  "day": "day",
   "subscription": "subscription"
 }

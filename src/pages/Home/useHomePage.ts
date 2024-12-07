@@ -8,6 +8,9 @@ import { IMasterDataSlice } from '../../redux/reducers/master-data.slice.ts';
 import { useAppDispatch, useAppSelector } from '../../redux/store.ts';
 import ErrorService from '../../service/error.service.ts';
 import { HttpService } from '../../service/http.service.ts';
+import { AccountActions } from '../../redux/actions/account.actions.ts';
+import { IAccountSlice } from '../../redux/reducers/account.slice.ts';
+import { IResGetMe } from '../../models/response/IResGetMe.ts';
 
 export function useHomePage() {
   const dispatch = useAppDispatch();
@@ -15,14 +18,23 @@ export function useHomePage() {
   const httpService = new HttpService();
   const errorService = new ErrorService();
   const masterDataAction = new MasterDataAction();
+  const accountAction = new AccountActions();
 
   const masterData: IMasterDataSlice = useAppSelector((state) => state.MasterData);
+  const account: IAccountSlice = useAppSelector((state) => state.Account);
 
   const [listSubscription, setListSubscription] = useState<IResSubscriptionPackage[]>([]);
+  const [accountDetail, setAccountDetail] = useState<IResGetMe | undefined>(account?.getMe?.data);
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (account?.getMe?.data) {
+      setAccountDetail(account?.getMe?.data);
+    }
+  }, [account?.getMe?.data]);
 
   useEffect(() => {
     setListSubscription(masterData?.listSubscriptionPackage?.data || []);
@@ -46,6 +58,7 @@ export function useHomePage() {
       onSuccess: function (result: any) {
         console.log('success');
         console.log(result);
+        dispatch(accountAction.getMe());
       },
       onPending: function (result: any) {
         console.log('pending');
@@ -68,5 +81,6 @@ export function useHomePage() {
   return {
     listSubscription,
     onClickSubscribe,
+    accountDetail,
   };
 }

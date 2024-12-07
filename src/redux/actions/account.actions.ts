@@ -14,6 +14,7 @@ export class AccountActions extends BaseActions {
       await this.httpService
         .GET(ENDPOINT.GET_ME())
         .then((res: BaseResponse<IResGetMe>) => {
+          console.log(res.data);
           localStorage.setItem('client_id', res.data.response_data.client_id);
           dispatch(this.actions.getMe({ loading: false, data: res.data.response_data }));
         })
