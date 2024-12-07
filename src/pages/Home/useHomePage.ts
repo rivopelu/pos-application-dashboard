@@ -32,11 +32,33 @@ export function useHomePage() {
     httpService
       .POST(ENDPOINT.CREATE_PAYMENT_SUBSCRIPTION(), { package_id: item.id })
       .then((res: BaseResponse<IResPayment>) => {
-        window.open(res.data.response_data.redirect_url);
+        showPaymentSnap(res.data.response_data.token);
       })
       .catch((e) => {
         errorService.fetchApiError(e);
       });
+  }
+
+  function showPaymentSnap(token: string) {
+    // eslint-disable-next-line @typescrip  t-eslint/ban-ts-comment
+    // @ts-ignore
+    snap.pay(token, {
+      onSuccess: function (result: any) {
+        console.log('success');
+        console.log(result);
+      },
+      onPending: function (result: any) {
+        console.log('pending');
+        console.log(result);
+      },
+      onError: function (result: any) {
+        console.log('error');
+        console.log(result);
+      },
+      onClose: function () {
+        console.log('customer closed the popup without finishing the payment');
+      },
+    });
   }
 
   function fetchData() {
