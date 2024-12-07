@@ -36,4 +36,5 @@ export const ENDPOINT = {
   CHECK_STATUS_ORDER: (code: string) => `/public/v1/order/check-status/${code}`,
   GET_DETAIL_ORDER: (id: string) => `/order/v1/detail/${id}`,
   GET_SUBSCRIPTION_PACKAGE: () => `/public/v1/subscription-package/list`,
+  CREATE_PAYMENT_SUBSCRIPTION: () => `/payment/v1/subscription`,
 };

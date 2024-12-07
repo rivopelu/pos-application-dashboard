@@ -14,7 +14,7 @@ export function HomePage() {
         <div className="mt-8">
           <div className="grid grid-cols-3 gap-8">
             {page.listSubscription.map((item, i) => (
-              <MainCard>
+              <MainCard key={i}>
                 <CardBody>
                   <div className="flex flex-col justify-center items-center gap-4">
                     <div className="text-3xl font-semibold capitalize">{item.package_name}</div>
