@@ -30,6 +30,19 @@ function BasePage(props: IProps) {
         {props.children}
       </>
     );
+  } else if (props.type === PageTypeEnums.SECONDARY) {
+    return (
+      <main className={'flex w-full relative'}>
+        <GeneralLoading />
+        <TopBar />
+        {/* <SideBar /> */}
+        <div className={'  w-full'}>
+          <div style={{ height: STYLE_VARIABLE.SIZE.TOP_BAR_HEIGHT }}></div>
+          <div className={'grid gap-8'}>{props.children}</div>
+          <div style={{ height: STYLE_VARIABLE.SIZE.TOP_BAR_HEIGHT }}></div>
+        </div>
+      </main>
+    );
   } else {
     return (
       <main className={'flex w-full relative'}>

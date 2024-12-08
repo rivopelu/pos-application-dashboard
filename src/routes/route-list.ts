@@ -18,6 +18,7 @@ import { ReportPage } from '../pages/report/ReportPage.tsx';
 import { PublicMenuListPage } from '../pages/public/PublicMenuListPage.tsx';
 import { SignUpPage } from '../pages/auth/sign-up/signUpPage.tsx';
 import { SubscriptionPage } from '../pages/subscription/SubscriptionPage.tsx';
+import { SettingPage } from '../pages/setting/SettingPage.tsx';
 
 export interface IRoutesList {
   element: () => Element;
@@ -115,5 +116,10 @@ export const routesList: IRoutesList[] = [
     element: SubscriptionPage,
     routes: ROUTES.SUBSCRIPTION(),
     type: PageTypeEnums.PRIMARY,
+  },
+  {
+    element: SettingPage,
+    routes: ROUTES.SETTING(),
+    type: PageTypeEnums.SECONDARY,
   },
 ];

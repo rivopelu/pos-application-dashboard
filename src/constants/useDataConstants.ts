@@ -7,6 +7,8 @@ import {
   MdGroup,
   MdHome,
   MdInventory,
+  MdPerson,
+  MdStore,
   MdTextSnippet,
 } from 'react-icons/md';
 import { ROUTES } from '../routes/route.ts';
@@ -86,5 +88,16 @@ export function useDataConstants() {
     },
   ];
 
-  return { sidebarDataList, tax, listDataFilterOrderStatus };
+  const settingMenuList = [
+    {
+      label: t('account-setting'),
+      icon: MdPerson,
+    },
+    {
+      label: t('business-setting'),
+      icon: MdStore,
+    },
+  ];
+
+  return { sidebarDataList, tax, listDataFilterOrderStatus, settingMenuList };
 }

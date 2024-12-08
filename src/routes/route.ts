@@ -20,4 +20,5 @@ export const ROUTES = {
   NOT_FOUND: () => `*`,
   ACCOUNT: (param?: defaultPaginationType) => `/account` + (param ? convertObjToQueryParam(param) : ''),
   SUBSCRIPTION: (param?: defaultPaginationType) => `/subscription` + (param ? convertObjToQueryParam(param) : ''),
+  SETTING: () => `/setting`,
 };
