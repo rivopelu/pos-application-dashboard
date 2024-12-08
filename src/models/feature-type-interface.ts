@@ -5,4 +5,4 @@ export interface ILabelValue<T> {
 }
 
 export type AlignType = 'inherit' | 'left' | 'center' | 'right' | 'justify';
-export type settingMenuType = 'PROFILE' | 'BUSINESS';
+export type settingMenuType = 'ACCOUNT' | 'BUSINESS';

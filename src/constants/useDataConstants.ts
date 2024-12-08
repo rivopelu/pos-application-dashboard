@@ -92,10 +92,12 @@ export function useDataConstants() {
     {
       label: t('account-setting'),
       icon: MdPerson,
+      type: 'ACCOUNT',
     },
     {
       label: t('business-setting'),
       icon: MdStore,
+      type: 'BUSINESS',
     },
   ];
 
