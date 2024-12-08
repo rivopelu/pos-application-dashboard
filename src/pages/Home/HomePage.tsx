@@ -14,12 +14,22 @@ export function HomePage() {
   return (
     <main className={''}>
       <PageContainer>
-        <div className="mt-8">
-          <div className="text-4xl">
-            {page.accountDetail?.subscription_expired_date
-              ? dateHelper.toFormatDate(new Date(page.accountDetail.subscription_expired_date), 'dd LLLL, yyyy - HH:mm')
-              : ''}
-          </div>
+        <div className="mt-8 grid gap-6">
+          <MainCard>
+            <CardBody>
+              <div className="flex items-center justify-between">
+                <div className="capitalize">{t('expire-date')}</div>
+                <div className="text-2xl">
+                  {page.accountDetail?.subscription_expired_date
+                    ? dateHelper.toFormatDate(
+                        new Date(page.accountDetail.subscription_expired_date),
+                        'dd LLLL, yyyy - HH:mm',
+                      )
+                    : ''}
+                </div>
+              </div>
+            </CardBody>
+          </MainCard>
           <div className="grid grid-cols-3 gap-8">
             {page.listSubscription.map((item, i) => (
               <MainCard key={i}>
