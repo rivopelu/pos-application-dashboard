@@ -3,4 +3,5 @@ export interface IResListSubscription {
   status: string;
   total_transaction: number;
   created_date: number;
+  duration_per_day: number;
 }

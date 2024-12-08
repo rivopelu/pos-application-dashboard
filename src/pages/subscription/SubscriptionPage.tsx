@@ -54,6 +54,15 @@ export function SubscriptionPage() {
       layouts: (e: IResListSubscription) => <div>{numberFormatHelper.toRupiah(e.total_transaction)}</div>,
     },
     {
+      key: 'duration',
+      headerTitle: t('duration-per-day'),
+      layouts: (e: IResListSubscription) => (
+        <div>
+          {e.duration_per_day} {t('day')}
+        </div>
+      ),
+    },
+    {
       key: 'create-date',
       headerTitle: t('create-date'),
       layouts: (e: IResListSubscription) => (

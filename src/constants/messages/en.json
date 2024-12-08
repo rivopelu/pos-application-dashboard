@@ -131,6 +131,7 @@
   "reset-password-description": "are you sure resetting password for {{name}}",
   "update-product-successfully": "product updated successfully",
   "select-items": "select items",
+  "duration-per-day": "duration per day",
   "process": "process",
   "select-status": "Select status",
   "profile": "profile",
