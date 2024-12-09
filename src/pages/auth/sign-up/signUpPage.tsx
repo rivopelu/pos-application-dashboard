@@ -1,10 +1,10 @@
+import { LoadingButton } from '@mui/lab';
+import { Checkbox, Divider, FormControlLabel } from '@mui/material';
 import { t } from 'i18next';
 import { InputText } from '../../../components/InputText';
-import { CardBody, MainCard } from '../../../components/MainCard';
-import { Button, Checkbox, Divider, FormControlLabel } from '@mui/material';
-import { useSignUpPage } from './useSignUpPage';
 import { InputTextarea } from '../../../components/InputTextArea';
-import { LoadingButton } from '@mui/lab';
+import { CardBody, MainCard } from '../../../components/MainCard';
+import { useSignUpPage } from './useSignUpPage';
 
 export function SignUpPage() {
   const page = useSignUpPage();

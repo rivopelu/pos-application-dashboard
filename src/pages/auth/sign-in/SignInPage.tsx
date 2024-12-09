@@ -7,6 +7,8 @@ import { CardBody, MainCard } from '../../../components/MainCard.tsx';
 import { InputText } from '../../../components/InputText.tsx';
 import { ENV } from '../../../constants/env.ts';
 import { MdCheck } from 'react-icons/md';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../../../routes/route.ts';
 
 export function SignInPage() {
   const page = useSignInPage();
@@ -60,6 +62,12 @@ export function SignInPage() {
               label={t('show-password')}
             />
 
+            <div>
+              {t('dont-have-account')}{' '}
+              <Link to={ROUTES.SIGN_UP()} className="text-primary-main hover:underline">
+                {t('sign-up-here')}
+              </Link>
+            </div>
             <LoadingButton loading={page.loading} onClick={() => formik.handleSubmit()} variant={'contained'}>
               {t('sign-in')}
             </LoadingButton>

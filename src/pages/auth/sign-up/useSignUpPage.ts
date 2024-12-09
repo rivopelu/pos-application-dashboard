@@ -36,7 +36,10 @@ export function useSignUpPage() {
       .string()
       .required(t('validation.required', { name: t('email') }))
       .email(t('validation.email-not-valid')),
-    confirmation_password: yup.string().required(t('validation.required', { name: t('confirmation-password') })),
+    confirmation_password: yup
+      .string()
+      .required(t('validation.required', { name: t('confirmation-password') }))
+      .oneOf([yup.ref('password'), ''], t('validation.password_match')), // Ensure the confirmation matches the password,
     business_name: yup.string().required(t('validation.required', { name: t('business-name') })),
     business_address: yup.string().required(t('validation.required', { name: t('business-address') })),
   });
