@@ -131,6 +131,8 @@
   "reset-password-description": "are you sure resetting password for {{name}}",
   "update-product-successfully": "product updated successfully",
   "select-items": "select items",
+  "edit-business-information": "edit business information",
+  "your-business-success-updated": "your business success updated",
   "duration-per-day": "duration per day",
   "account-setting": "account setting",
   "business-setting": "business setting",

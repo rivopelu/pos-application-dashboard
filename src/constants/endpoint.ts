@@ -38,4 +38,5 @@ export const ENDPOINT = {
   GET_SUBSCRIPTION_PACKAGE: () => `/public/v1/subscription-package/list`,
   CREATE_PAYMENT_SUBSCRIPTION: () => `/payment/v1/subscription`,
   LIST_SUBSCRIPTION: () => `/subscription/v1/list`,
+  EDIT_BUSINESS: () => `/client/v1/edit`,
 };

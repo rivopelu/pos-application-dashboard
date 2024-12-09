@@ -11,7 +11,7 @@ import { ProfileSetting } from './ProfileSetting';
 import { useNavigate } from 'react-router-dom';
 
 export function SettingPage() {
-  const [activeTab, setActiveTab] = useState<settingMenuType>('ACCOUNT');
+  const [activeTab, setActiveTab] = useState<settingMenuType>('BUSINESS');
   const navigate = useNavigate();
 
   function checkType() {
