@@ -115,7 +115,7 @@ const themeConfig = createTheme({
         root: { padding: 0 },
         paper: {
           margin: 0,
-          borderRadius: 10,
+          borderRadius: 4,
           padding: 0,
           borderColor: STYLE_VARIABLE.COLORS.SYSTEM.BORDER,
           boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.05)',

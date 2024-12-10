@@ -9,31 +9,41 @@ import { TopBar } from './TopBar.tsx';
 import { SideBar } from './SideBar.tsx';
 import { STYLE_VARIABLE } from '../constants/style-variable.ts';
 
-function BasePage(props: IProps)
-{
+function BasePage(props: IProps) {
   const dispatch = useAppDispatch();
   const location = useLocation();
 
   const accountActions = new AccountActions();
 
-  useEffect(() =>
-  {
-    if (location.pathname !== ROUTES.SIGN_IN())
-    {
+  useEffect(() => {
+    if (location.pathname === ROUTES.SIGN_IN() || location.pathname === ROUTES.SIGN_UP()) {
+      console.info(location.pathname);
+    } else {
       dispatch(accountActions.getMe()).then();
     }
   }, []);
 
-  if (props.type === PageTypeEnums.FULL_PAGE)
-  {
+  if (props.type === PageTypeEnums.FULL_PAGE) {
     return (
       <>
         <GeneralLoading />
         {props.children}
       </>
     );
-  } else
-  {
+  } else if (props.type === PageTypeEnums.SECONDARY) {
+    return (
+      <main className={'flex w-full relative'}>
+        <GeneralLoading />
+        <TopBar />
+        {/* <SideBar /> */}
+        <div className={'  w-full'}>
+          <div style={{ height: STYLE_VARIABLE.SIZE.TOP_BAR_HEIGHT }}></div>
+          <div className={'grid gap-8'}>{props.children}</div>
+          <div style={{ height: STYLE_VARIABLE.SIZE.TOP_BAR_HEIGHT }}></div>
+        </div>
+      </main>
+    );
+  } else {
     return (
       <main className={'flex w-full relative'}>
         <GeneralLoading />
@@ -51,8 +61,7 @@ function BasePage(props: IProps)
 
 export default BasePage;
 
-interface IProps
-{
+interface IProps {
   children: ReactNode;
   type: PageTypeEnums;
 }

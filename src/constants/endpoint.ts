@@ -6,6 +6,7 @@ export const ENDPOINT = {
   },
   UPLOAD: '/v1/upload',
   SIGN_IN: () => `/auth/v1/sign-in/admin`,
+  SIGN_UP: () => `/auth/v1/sign-up`,
   GET_ME: () => `/account/v1/get-me`,
   GET_LIST_CATEGORIES: () => `/master-data/v1/category/list`,
   NEW_PRODUCT: () => `/product/v1/new`,
@@ -34,4 +35,8 @@ export const ENDPOINT = {
   PROCESS_ORDER_PUBLIC: (code: string) => `/public/v1/order/create/${code}`,
   CHECK_STATUS_ORDER: (code: string) => `/public/v1/order/check-status/${code}`,
   GET_DETAIL_ORDER: (id: string) => `/order/v1/detail/${id}`,
+  GET_SUBSCRIPTION_PACKAGE: () => `/public/v1/subscription-package/list`,
+  CREATE_PAYMENT_SUBSCRIPTION: () => `/payment/v1/subscription`,
+  LIST_SUBSCRIPTION: () => `/subscription/v1/list`,
+  EDIT_BUSINESS: () => `/client/v1/edit`,
 };

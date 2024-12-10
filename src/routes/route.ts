@@ -5,7 +5,8 @@ export const ROUTES = {
   HOME: () => `/`,
   PUBLIC_MENU_LIST_PAGE: (code?: string) => `/public/menu-list/code/${code}`,
   ORDER_LIST: (param?: defaultPaginationType) => '/order-list' + (param ? convertObjToQueryParam(param) : ''),
-  SIGN_IN: () => `/sign-in`,
+  SIGN_IN: () => `/auth/sign-in`,
+  SIGN_UP: () => `/auth/sign-up`,
   MENU: () => `/menu`,
   NEW_MENU: () => `/menu/new`,
   MASTER_DATA: () => `/master-data`,
@@ -18,4 +19,6 @@ export const ROUTES = {
   REPORT: (param?: defaultPaginationType) => `/report` + (param ? convertObjToQueryParam(param) : ''),
   NOT_FOUND: () => `*`,
   ACCOUNT: (param?: defaultPaginationType) => `/account` + (param ? convertObjToQueryParam(param) : ''),
+  SUBSCRIPTION: (param?: defaultPaginationType) => `/subscription` + (param ? convertObjToQueryParam(param) : ''),
+  SETTING: () => `/setting`,
 };

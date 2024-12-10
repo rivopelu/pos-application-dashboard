@@ -1,5 +1,16 @@
 import { t } from 'i18next';
-import { MdAreaChart, MdAssignment, MdCategory, MdGroup, MdHome, MdInventory, MdTextSnippet } from 'react-icons/md';
+import {
+  MdAccountBalanceWallet,
+  MdAreaChart,
+  MdAssignment,
+  MdCategory,
+  MdGroup,
+  MdHome,
+  MdInventory,
+  MdPerson,
+  MdStore,
+  MdTextSnippet,
+} from 'react-icons/md';
 import { ROUTES } from '../routes/route.ts';
 import { ILabelValue } from '../models/feature-type-interface.ts';
 import { OrderStatusEnum } from '../enums/order-status-enum.ts';
@@ -38,6 +49,11 @@ export function useDataConstants() {
       icon: MdInventory,
     },
     {
+      title: t('subscription'),
+      path: ROUTES.SUBSCRIPTION(),
+      icon: MdAccountBalanceWallet,
+    },
+    {
       title: t('account'),
       path: ROUTES.ACCOUNT(),
       icon: MdGroup,
@@ -72,5 +88,18 @@ export function useDataConstants() {
     },
   ];
 
-  return { sidebarDataList, tax, listDataFilterOrderStatus };
+  const settingMenuList = [
+    {
+      label: t('account-setting'),
+      icon: MdPerson,
+      type: 'ACCOUNT',
+    },
+    {
+      label: t('business-setting'),
+      icon: MdStore,
+      type: 'BUSINESS',
+    },
+  ];
+
+  return { sidebarDataList, tax, listDataFilterOrderStatus, settingMenuList };
 }

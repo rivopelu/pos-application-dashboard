@@ -13,6 +13,11 @@ export const ENV = {
   // @ts-ignore
   GOOGLE_MAP_KEY: import.meta.env.VITE_APP_GOOGLE_MAP_KEY,
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  MT_CLIENT_KEY: import.meta.env.MT_CLIENT_KEY,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   ENV_TYPE: import.meta.env.VITE_APP_ENV,
   VERSION: packageJson.version,

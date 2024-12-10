@@ -1,14 +1,13 @@
 import { OrderStatusEnum } from '../enums/order-status-enum.ts';
 
-export function OrderStatusEnumText(props: IProps)
-{
-  function checkColor()
-  {
-    switch (props.status)
-    {
+export function OrderStatusEnumText(props: IProps) {
+  function checkColor() {
+    switch (props.status) {
       case OrderStatusEnum.READY:
         return '#0369a1';
       case OrderStatusEnum.COMPLETED:
+        return '#15803d';
+      case OrderStatusEnum.SUCCESS:
         return '#15803d';
       case OrderStatusEnum.CREATED:
         return '#0369a1';
@@ -30,7 +29,6 @@ export function OrderStatusEnumText(props: IProps)
   );
 }
 
-interface IProps
-{
+interface IProps {
   status: OrderStatusEnum;
 }

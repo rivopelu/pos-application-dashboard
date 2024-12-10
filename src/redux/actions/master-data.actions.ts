@@ -5,9 +5,25 @@ import { ENDPOINT } from '../../constants/endpoint.ts';
 import { BaseResponse } from '../../models/response/ResponseModel.ts';
 import { IResListCategoriesProductList } from '../../models/response/IResListCategoriesProductList.ts';
 import { IResListProducts } from '../../models/response/IResListProducts.ts';
+import { IResSubscriptionPackage } from '../../models/response/IResGetSubscriptionPackage.ts';
 
 export class MasterDataAction extends BaseActions {
   private actions = MasterDataSlice.actions;
+
+  getSubscriptonPackage() {
+    return async (dispatch: Dispatch) => {
+      dispatch(this.actions.listSubscriptionPackage({ loading: true, data: undefined }));
+      await this.httpService
+        .GET(ENDPOINT.GET_SUBSCRIPTION_PACKAGE())
+        .then((res: BaseResponse<IResSubscriptionPackage[]>) => {
+          dispatch(this.actions.listSubscriptionPackage({ loading: false, data: res.data.response_data }));
+        })
+        .catch((e) => {
+          this.errorService.fetchApiError(e);
+          dispatch(this.actions.listSubscriptionPackage({ loading: false, data: undefined }));
+        });
+    };
+  }
 
   getListCategories() {
     return async (dispatch: Dispatch) => {
@@ -15,7 +31,7 @@ export class MasterDataAction extends BaseActions {
       await this.httpService
         .GET(ENDPOINT.GET_LIST_CATEGORIES())
         .then((res: BaseResponse<IResListCategoriesProductList[]>) => {
-          dispatch(this.actions.listCategories({ loading: false, data: res.data.response_data,  }));
+          dispatch(this.actions.listCategories({ loading: false, data: res.data.response_data }));
         })
         .catch((e) => {
           this.errorService.fetchApiError(e);
@@ -23,15 +39,13 @@ export class MasterDataAction extends BaseActions {
     };
   }
 
-
-
-  getListCategoriesPublic(code : string) {
+  getListCategoriesPublic(code: string) {
     return async (dispatch: Dispatch) => {
       dispatch(this.actions.listCategories({ data: undefined, loading: true }));
       await this.httpService
         .GET(ENDPOINT.GET_LIST_CATEGORY_PUBLIC(code))
         .then((res: BaseResponse<IResListCategoriesProductList[]>) => {
-          dispatch(this.actions.listCategories({ loading: false, data: res.data.response_data,  }));
+          dispatch(this.actions.listCategories({ loading: false, data: res.data.response_data }));
         })
         .catch((e) => {
           this.errorService.fetchApiError(e);
