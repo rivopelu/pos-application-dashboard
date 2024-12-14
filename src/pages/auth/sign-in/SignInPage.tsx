@@ -14,7 +14,7 @@ export function SignInPage() {
   const page = useSignInPage();
   const formik = page.formik;
   return (
-    <div className={'h-screen grid grid-cols-2'}>
+    <div className={'h-screen grid grid-cols-2'} data-testid={"sign-in-page"}>
       <div className={'bg-primary-main flex-1 h-full'}></div>
       <div className={' flex flex-col justify-between max-w-md mx-auto w-full h-[80%] my-auto'}>
         <div className={'w-full flex items-center justify-center'}>

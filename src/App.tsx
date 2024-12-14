@@ -4,7 +4,7 @@ import {routesList} from "./routes/route-list.ts";
 import BasePage from "./components/BasePage.tsx";
 function App(): JSX.Element {
   return (
-    <div className={'bg-slate-100 min-h-screen'}>
+    <div className={'bg-slate-100 min-h-screen'} data-testid={"app-screen"}>
       <ToastContainer
         position="bottom-right"
         autoClose={3000}
